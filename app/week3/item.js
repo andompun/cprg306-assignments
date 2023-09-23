@@ -5,7 +5,7 @@ export default function Item({ name, quantity, category }) {
           <h3 className="text-xl font-bold">{name}</h3>
           <p>Buy {quantity} in {category}</p>
         </div>
-      </div>
+      </div>            
     );
   }
   
