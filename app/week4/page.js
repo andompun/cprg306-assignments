@@ -5,6 +5,6 @@ export default function Page() {
     return (
         <div>
             <NewItem />
-        </div>>
+        </div>
     );
 }
