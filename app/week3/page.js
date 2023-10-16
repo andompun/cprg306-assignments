@@ -11,7 +11,7 @@ export default function Page() {
         height: '170vh',
       }}>
       
-        <h1 style = {{color: 'brown', fontWeight: 'bold', textAlign: 'center', fontSize: '40px'}}>
+        <h1 className="text-4xl font-bold text-center text-blue-800">
           Shopping List
         </h1>
         <ItemList />

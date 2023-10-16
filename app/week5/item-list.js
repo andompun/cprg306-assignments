@@ -18,9 +18,9 @@ export default function ItemList() {
 
     const renderSortButtons = () => {
         return (
-            <div className="flex justify-center">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setSortBy("name")}>Name</button>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => setSortBy("category")}>Category</button>
+            <div className="flex justify-left ml-7 space-x-5 w-full">
+                <button className="block mb-4 bg-blue-500 hover:bg-blue-700 text-white mt-3 font-bold py-2 px-4 rounded" onClick={() => setSortBy("name")}>Name</button>
+                <button className="block mb-4 bg-blue-500 hover:bg-blue-700 text-white mt-3 font-bold py-2 px-4 rounded" onClick={() => setSortBy("category")}>Category</button>
             </div>
         );
     };
