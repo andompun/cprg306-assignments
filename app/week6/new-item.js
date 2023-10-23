@@ -1,4 +1,5 @@
 "use client";
+
 import {useState} from 'react';
 
 export default function NewItem({onAddItem}) {
@@ -9,20 +10,19 @@ export default function NewItem({onAddItem}) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-    
-        // Ensure that the item has a name, quantity, and category before adding it
-        if (item.name && item.quantity && item.category) {
-            // Call the onAddItem prop and pass the item object
-            onAddItem(item);
-            // Reset the form
-            setItem({ name: '', quantity: '', category: '' });
-          }
 
-        console.log(item);
+        const newItem = {
+            name: name,
+            quantity: quantity,
+            category: category,
+        };
 
+        onAddItem(newItem);
         
-
-    
+        setName("");
+        setQuantity(1);
+        setCategory("Produce");
+        
     };
 
     const handleNameChange = (evt) => {
