@@ -2,12 +2,17 @@
 
 import {useState} from "react";
 import Item from "../week3/item";
-import Items from "./items.json";
 
-export default function ItemList() {
+export default function ItemList({items, onSubmit}) {
+
+    const handleAddItem = (newItem) => {
+        const updatedItems = [newItem, ...items];
+        onSubmit(updatedItems);
+    };
+
     const [sortBy, setSortBy] = useState("name");  
 
-    const sortedItems = [...Items].sort((a, b) => {
+    const sortedItems = [...items].sort((a, b) => {
         if (sortBy === "name") {
             return a.name.localeCompare(b.name);
         } else if (sortBy === "category") {
@@ -31,9 +36,11 @@ export default function ItemList() {
             {sortedItems.map((item) => (
                 <Item 
                 key={item.name} 
-                name={item.name} 
+                name={item.name}
+                quantity={item.quantity} 
                 category={item.category} />
             ))}
+
         </div>
     )
         
