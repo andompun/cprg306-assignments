@@ -13,10 +13,6 @@ export default function Page() {
     setItems([newItem, ...items]);
   };
 
-  function handleSubmit(item) {
-    // Implement the logic for handling item submission here
-  }
-
   const pageStyle = {
     backgroundImage: 'url("https://storage.googleapis.com/gen-atmedia/3/2018/01/2d4ea32ed14a1f75cf1b454748dfa99cd4a1fa62.jpeg")',
     backgroundSize: 'cover',

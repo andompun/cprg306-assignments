@@ -19,6 +19,7 @@ export default function NewItem({onSubmit}) {
 
         onSubmit(newItem);
         alert("Item Added!");
+
     };
 
     const handleNameChange = (evt) => {
