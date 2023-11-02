@@ -5,12 +5,19 @@ import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json";
 import { useState } from "react";
+import MealIdeas from "./meal-ideas";
 
 export default function Page() {
   const [items, setItems] = useState(itemsData);
+const [cleanName, setCleanName] = useState('');
 
   const handleAddItem = (newItem) => {
     setItems([newItem, ...items]);
+  };
+
+  const handleSelect = (itemName) => {
+    const cleanName = itemName.split(',')[0].replace(/,.*|🥛|🍞|🥚|🍌|🥦|🍗|🍝|🧻|🧼|🍽️/g, '').trim();
+    setCleanName(cleanName);
   };
 
   const pageStyle = {
@@ -22,12 +29,19 @@ export default function Page() {
   };
 
   return (
+    <>
     <main style={pageStyle}>
       <h1 className="text-4xl font-bold text-center text-blue-800">Shopping List</h1>
-      <div>
-        <NewItem onSubmit={handleAddItem} />
-        <ItemList items={items} />
+      <div className='flex'>
+        <div className='flex-1 max-w-sm m-2'>
+            <NewItem onSubmit={handleAddItem} />
+            <ItemList items={items} />
+        </div>
+      </div>
+      <div className='flex-1 max-w-sm m-2'>
+        <MealIdeas ingredient={cleanName} />
       </div>
     </main>
+    </>
   );
 }
