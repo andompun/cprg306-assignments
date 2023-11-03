@@ -1,5 +1,3 @@
-'use client'
-
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
 
@@ -27,27 +25,26 @@ export default function Page() {
             <h1 className="text-4xl font-bold text-center text-blue-800">Shopping List</h1>
             <div>
                 {user ? (
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                        onClick={handleSignOut}
-                    >
-                        Sign Out
-                    </button>
+                    <div className="text-lg">
+                        <p>
+                            Signed in as {user.displayName} ({user.email})
+                        </p>
+                        <p>
+                            <button
+                                className="text-lg-500 hover:underline"
+                                onClick={handleSignOut}
+                            >
+                                Sign Out
+                            </button>
+                        </p>
+                        <Link href="/week8/shopping-list">
+                            <a className="text-lg-500 hover:underline">Go to Shopping List</a>
+                        </Link>
+                    </div>
                 ) : (
-                    <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                        onClick={handleSignIn}
-                    >
-                        Sign In
-                    </button>
+                    <button onClick={handleSignIn}>gitHub Sign In</button>
                 )}
             </div>
-            <div>
-                <Link href="/week8">
-                    <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Shopping List
-                    </a>
-                </Link>
-            </div>
         </main>
-
+    );
+};
