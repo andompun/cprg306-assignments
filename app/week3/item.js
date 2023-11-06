@@ -9,5 +9,3 @@ export default function Item({ name, quantity, category }) {
     );
   }
   
-
-  "my-5 rounded px-2 py-2 bg-slate-900"

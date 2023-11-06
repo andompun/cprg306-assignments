@@ -33,7 +33,7 @@ export default function Page() {
               <ItemList items={items} onSubmit={handleItemSelect} />
           </div>
           <div className='flex-1 max-w-sm m-2'>
-            <h2 className="text-xl font-bold text-white">
+            <h2 className="text-m text-white">
               <MealIdeas ingredient={cleanName}/>
             </h2>
           </div>

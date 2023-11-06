@@ -52,7 +52,7 @@ export default function MealIdeas({ ingredient}) {
           <ul>
             {meals.map((meal) => (
               <li 
-                  className='p-2 m-1 bg-slate-900 max-w-sm hover:bg-orange-800 cursor-pointer' 
+                  className='p-2 m-1 bg-slate-900 max-w-s rounded-md p-1 hover:bg-blue-500 cursor-pointer' 
                   key={meal.idMeal}
                   onClick={() => handleMealClick(meal)}
               >
