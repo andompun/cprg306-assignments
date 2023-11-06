@@ -70,7 +70,12 @@ export default function NewItem({onSubmit}) {
                             <option value="Bakery">Bakery</option>
                             <option value="Meat">Meat</option>
                             <option value="Frozen">Frozen</option>
-                            <option value="Pantry">Pantry</option>
+                            <option value="canned goods">Canned Goods</option>
+                            <option value="dry goods">Dry Goods</option>
+                            <option value="beverages">Beverages</option>
+                            <option value="snacks">Snacks</option>
+                            <option value="household">Household</option>
+                            <option value="other">Other</option>
                         </select>
                     </label>
                 </div>
@@ -83,4 +88,3 @@ export default function NewItem({onSubmit}) {
         </div>
     );   
 }
-

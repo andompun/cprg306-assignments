@@ -1,6 +1,4 @@
-"use client";
-
-import {useState} from "react";
+import React, {useState} from "react";
 import Item from "./item";
 
 export default function ItemList({items, onSubmit}) {
@@ -38,7 +36,8 @@ export default function ItemList({items, onSubmit}) {
                 key={item.name} 
                 name={item.name}
                 quantity={item.quantity} 
-                category={item.category} />
+                category={item.category}
+                onSelect={() => onSubmit(item.name)} />
             ))}
 
         </div>

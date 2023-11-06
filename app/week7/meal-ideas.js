@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import {useState, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 
 async function fetchMealIdeas(ingredient) {
   try {
@@ -22,34 +22,52 @@ async function fetchMealIdeas(ingredient) {
 
 export default function MealIdeas({ ingredient}) {
 
-    const [ meals, setMeals ] = useState(null);
+    const [ meals, setMeals ] = useState([]);
+    const [ selectedMealImage, setSelectedMealImage ] = useState(null);
+    const [selectedMealID, setSelectedMealID] = useState(null);
 
     async function loadMealIdeas() {
-        try {
-            const data = await fetchMealIdeas();
-            setMeals(data.meals);
-        } catch (error) {
-            console.error(error);
-        }
-    }
+        const meals = await fetchMealIdeas(ingredient);
+        setMeals(meals);
+    };
+
     useEffect(() => {
-        loadMealIdeas();}, []);
+        loadMealIdeas();
+      }, [ingredient]);
+
+    const handleMealClick = (meal) => {
+      if (meal.idMeal === selectedMealID) {
+          setSelectedMealImage(meal.strMealThumb);
+          setSelectedMealID(meal.idMeal);
+      } else {
+          setSelectedMealImage(null);
+          setSelectedMealID(null);
+      } 
+    };
     
-  return (
-    <div>
-      <h2 className="text-4xl font-bold mb-4">Meal Ideas for: {ingredient}</h2>
-      {meals ? (
-        <ul>
-          {meals.map((meal) => (
-            <li key={meal.idMeal}>
-              {meal.strMeal}
-              <img src={meal.strMealThumb} alt={meal.strMeal} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No meal ideas found for {ingredient}</p>
-      )}
-    </div>
-  );
+    if (meals && meals.length > 0) {
+      return (
+        <div>
+          <p>Meal Ideas with {ingredient}:</p>
+          <ul>
+            {meals.map((meal) => (
+              <li 
+                  className='p-2 m-1 bg-slate-900 max-w-sm hover:bg-orange-800 cursor-pointer' 
+                  key={meal.idMeal}
+                  onClick={() => handleMealClick(meal)}
+              >
+                {meal.strMeal}
+                <div>
+                  {selectedMealID === meal.idMeal && selectedMealImage && (
+                    <img src={selectedMealImage} alt={meal.strMeal} />
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    } else {
+      return <div>No meal ideas found</div>;
+    }
 }
