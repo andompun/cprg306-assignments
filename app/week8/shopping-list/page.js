@@ -17,8 +17,7 @@ export default function Page() {
     if (!user) {
         return
             <p>You need to be signed in to view this page.</p>;
-        } else {
-            return <Redirect to="./shopping-list" />;        
+    
   const handleAddItem = (newItem) => {
     setItems([newItem, ...items]);
   };
@@ -26,6 +25,7 @@ export default function Page() {
     const cleanName = itemName.split(',')[0].replace(/,.*|🥛|🍞|🥚|🍌|🥦|🍗|🍝|🧻|🧼|🍽️/g, '').trim();
     setCleanName(cleanName);
   };
+};
 
   return (
     <>
