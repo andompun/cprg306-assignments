@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export default function Page() {
                         onClick={handleSignOut}>Sign Out
                     </button>
                 </p>
-                <Link href="/week8/shopping-list"
+                <Link href="week8/shopping-list/"
                       className="text-lg-500 hover:underline">
                         Go to Shopping List
                 </Link>
