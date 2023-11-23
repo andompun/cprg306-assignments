@@ -3,7 +3,9 @@
 import { db } from "../_utils/firebase";
 import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
-export const getShoppingList = async () => {
+export const getItems = async
+
+export const getItems = async () => {
     const shoppingList = [];
     const q = query(collection(db, "shoppingList"));
     const querySnapshot = await getDocs(q);
@@ -13,8 +15,9 @@ export const getShoppingList = async () => {
     return shoppingList;
     };
 
-export const addShoppingListItem = async (item) => {
+export const addItems = async (item) => {
     await addDoc(collection(db, "shoppingList"), item);
     };
 
 // Compare this snippet from app/week10/shopping-list.js:
+
